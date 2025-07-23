@@ -4,13 +4,13 @@ import bcrypt from 'bcryptjs';
 
 export const addAdmin = async (req: Request, res: Response) => {
   try {
-    const { username, password } = req.body;
+    const { username, password, role } = req.body;
 
     const hashed = await bcrypt.hash(password, 10);
-    const admin = new User({ username, password: hashed, role: 'admin' });
+    const admin = new User({ username, password: hashed, role: role });
     await admin.save();
 
-    res.status(201).json({ message: 'Admin added' });
+    res.status(201).json({ message: `${role} added` });
   } catch (err) {
     res.status(500).json({ message: 'Failed to add admin', err });
   }
