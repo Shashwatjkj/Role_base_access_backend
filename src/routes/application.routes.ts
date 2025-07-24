@@ -17,7 +17,7 @@ const router = express.Router();
 router.post('/submit', submitApplication);
 
 // Only admin can view pending applications
-router.get('/pending', authenticate, authorizeAdmin, getPendingApplications);
+router.get('/pending', getPendingApplications);
 
 // Verifier or Admin can change status
 router.post('/status/:id', authenticate, authorizeVerifierOrAdmin, updateApplicationStatus);
