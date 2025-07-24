@@ -113,11 +113,13 @@
 // }
 {
   "compilerOptions": {
-    "target": "ES6",
-    "module": "CommonJS",
-    "rootDir": "./src",
-    "outDir": "./dist",
+    "target": "es6",
+    "module": "commonjs",
+    "rootDir": "src",
+    "outDir": "dist",
+    "strict": true,
     "esModuleInterop": true,
-    "strict": true
-  }
+    "skipLibCheck": true
+  },
+  "include": ["src"]
 }
