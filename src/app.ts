@@ -9,6 +9,7 @@ import applicationRoutes from './routes/application.routes';
 import adminRoutes from './routes/admin.routes';
 import dashboardRoutes from './routes/dashboard.routes';
 import { log } from './utils/logger';
+import connectdb from './db/connection'
 
 dotenv.config();
 validateEnv();
@@ -27,8 +28,7 @@ app.use('/admin', adminRoutes);
 app.use('/dashboard', dashboardRoutes);
 
 // Connect MongoDB and Start Server
-mongoose
-  .connect(process.env.MONGO_URI as string)
+connectdb()
   .then(() => {
     log('Connected to MongoDB');
     app.listen(PORT, () => log(`Server is running on port ${PORT}`));

@@ -1,5 +1,5 @@
 export const validateEnv = () => {
-  const required = ['MONGO_URI', 'JWT_SECRET', 'PORT'];
+  const required = ['MONGODB_URI', 'JWT_SECRET', 'PORT'];
 
   const missing = required.filter((key) => !process.env[key]);
 
