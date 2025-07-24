@@ -45,7 +45,7 @@ export const submitApplication = async (req: Request, res: Response) => {
 
 export const getPendingApplications = async (_req: Request, res: Response) => {
   try {
-    const pending = await Application.find({ status: 'pending' });
+    const pending = await Application.find();
     res.status(200).json(pending);
   } catch (err) {
     res.status(500).json({ message: 'Error fetching pending applications', err });
